@@ -1,0 +1,47 @@
+GRE Commands 
+
+Finding smlb use dc script
+Login to smlb then use these commands to check we are receiving traffic from their end.
+
+find / -name sc.conf      
+cat /sc/s2-yto2a-smlb/conf/sc.conf | grep tap
+
+find / -name smtcpdump.sh
+ZSINSTANCE=/sc/a/zsc-dfw1-1y1-smlb/ /sc/a/zsc-dfw1-1y1-smlb/sc_5.6r.8.167984_84/bin/smtcpdump.sh -s0 - -v -i tap0 host 96.66.63.205
+
+ZSINSTANCE=/sc/mil2a1-sme/ /sc/mil2a1-sme/sc_5.6r.19_prod.4.169245_84/bin/smtcpdump.sh -s0 -w /var/tmp/hsbc.pcap -i tap1 -n -v host hsbc.com.tr
+
+
+
+ scp /zsc-hkg3-1a1-sme:/var/tmp/test.pcap
+
+
+
+ curl -Lvk -x 221.122.91.61:443 https://www.baidu.com
+
+
+
+cd /z/bin/shared/support/scripts
+
+ sudo /ops/bin/zdump.sh zs2-syd2a.smlb -n host 203.97.58.70
+
+
+/sc/bin/smmgr -s domain_dns=gateway.zscalerthree.net -s clientip_dns=64.112.132.254   -ys show=arec
+
+
+/sc/bin/smmgr -s domain_dns=gateway.zscloud.net -s clientip_dns=203.162.39.37 -s show=arec
+
+
+
+
+old IPSEC LOGS
+
+[support@zsc-lon3n ~]$ find /sc -name racoon.log
+/sc/zsc-lon3n-smiked/log/racoon.log
+[support@zsc-lon3n ~]$ cd /sc/zsc-lon3n-smiked/log/racoon.log
+-bash: cd: /sc/zsc-lon3n-smiked/log/racoon.log: Not a directory
+[support@zsc-lon3n ~]$ cd /sc/zsc-lon3n-smiked/log/racoon.log/
+-bash: cd: /sc/zsc-lon3n-smiked/log/racoon.log/: Not a directory
+[support@zsc-lon3n ~]$ cd /sc/zsc-lon3n-smiked/log/
+[support@zsc-lon3n /sc/zsc-lon3n-smiked/log]$ ls
+bzcat racoon.log.4.bz2 | grep 81.109.160.226
